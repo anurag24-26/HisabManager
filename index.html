@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Money Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Hisab Manager</h1>
+
+        <div class="input-section">
+            <input type="text" id="personName" placeholder="Person's Name" list="nameSuggestions">
+            <datalist id="nameSuggestions"></datalist>
+
+            <input type="number" id="amount" placeholder="Amount">
+            <input type="date" id="date">
+            <select id="type">
+                <option value="lent">Given</option>
+                <option value="borrowed">Took</option>
+            </select>
+            <button id="addEntry">Add Entry</button>
+        </div>
+
+        <div class="search-section">
+            <input type="text" id="searchPerson" placeholder="Search by Person's Name">
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Person</th>
+                    <th>Amount</th>
+                    <th>Date</th>
+                    <th>Type</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="entryList">
+                <!-- Entries will be dynamically rendered here by JavaScript -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
