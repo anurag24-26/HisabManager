@@ -1,145 +1,148 @@
+/* Root Variables */
+:root {
+    --primary: #28a745;
+    --primary-hover: #218838;
+    --secondary: #007bff;
+    --bg: #f4f4f4;
+    --text: #333;
+    --white: #ffffff;
+    --light-gray: #f2f2f2;
+    --border: #ddd;
+}
+
 /* General Styles */
 body {
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+    font-family: 'Arial', sans-serif;
+    background-color: var(--bg);
     margin: 0;
     padding: 20px;
+    color: var(--text);
 }
 
 .container {
-    width: 60%;
+    width: 100%;
+    max-width: 800px;
     margin: auto;
-    background-color: white;
-    padding: 20px;
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    background-color: var(--white);
+    padding: 25px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     border-radius: 12px;
 }
 
-/* Header */
 h1 {
     text-align: center;
-    color: #333;
-    font-size: 28px;
+    color: var(--text);
+    margin-bottom: 25px;
 }
 
 /* Input Section */
 .input-section {
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
     flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+    justify-content: space-between;
 }
 
 input, select {
     padding: 12px;
-    margin: 5px;
     font-size: 16px;
     flex: 1;
-    min-width: 48%;
-    border-radius: 8px;
-    border: 1px solid #ccc;
+    min-width: 45%;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    transition: all 0.3s ease;
 }
 
-/* Buttons */
+input:focus, select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px rgba(40, 167, 69, 0.2);
+}
+
 button {
     padding: 12px 24px;
-    background-color: #28a745;
-    color: white;
+    background-color: var(--primary);
+    color: var(--white);
     border: none;
-    border-radius: 8px;
-    cursor: pointer;
+    border-radius: 6px;
     font-size: 16px;
-    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    transition: background 0.3s ease;
 }
 
 button:hover {
-    background-color: #1e7e34;
-    transform: scale(1.05);
-    box-shadow: 0 4px 10px rgba(40, 167, 69, 0.2);
+    background-color: var(--primary-hover);
 }
 
 /* Table Styling */
 table {
     width: 100%;
     border-collapse: collapse;
+    margin-top: 10px;
 }
 
 th, td {
-    padding: 14px;
-    border: 1px solid #ddd;
+    padding: 14px 12px;
+    border: 1px solid var(--border);
     text-align: center;
-    font-size: 16px;
+    font-size: 15px;
 }
 
 thead {
-    background-color: #007bff;
-    color: white;
+    background-color: var(--secondary);
+    color: var(--white);
 }
 
 tbody tr:nth-child(even) {
-    background-color: rgba(0, 123, 255, 0.1);
+    background-color: var(--light-gray);
 }
 
-tbody tr:hover {
-    background-color: rgba(0, 123, 255, 0.15);
-    cursor: pointer;
-}
-
-/* Icon Buttons */
+/* Edit/Delete Button Icons */
 .edit-btn, .delete-btn {
-    width: 20px;
-    height: 20px;
     background-color: transparent;
     border: none;
     cursor: pointer;
-    padding: 0;
+    padding: 5px;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    transition: filter 0.2s ease;
 }
 
 .edit-btn img, .delete-btn img {
-    width: 16px;
-    height: 16px;
-    transition: transform 0.2s ease-in-out;
+    width: 18px;
+    height: 18px;
 }
 
 .edit-btn:hover img,
 .delete-btn:hover img {
-    filter: brightness(0.8);
-    transform: scale(1.1);
+    filter: brightness(0.7);
 }
 
-/* Responsive Adjustments for Mobile */
+/* Responsive Design */
 @media (max-width: 768px) {
     .container {
         width: 95%;
-        padding: 15px;
-        box-shadow: none;
+        padding: 20px;
     }
 
     .input-section {
         flex-direction: column;
+        gap: 12px;
     }
 
     input, select, button {
         width: 100%;
-        margin-bottom: 10px;
-        font-size: 14px;
+        font-size: 15px;
+    }
+
+    button {
+        width: 100%;
     }
 }
 
-@media (max-width: 600px) {
-    body {
-        padding: 10px;
-    }
-
-    .container {
-        width: 100%;
-        padding: 10px;
-        box-shadow: none;
-    }
-
+@media (max-width: 480px) {
     table {
         display: block;
         overflow-x: auto;
@@ -147,11 +150,10 @@ tbody tr:hover {
     }
 
     th, td {
-        padding: 10px;
         font-size: 14px;
     }
 
-    button {
-        width: 100%;
+    .container {
+        padding: 15px;
     }
 }
